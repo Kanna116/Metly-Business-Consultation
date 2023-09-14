@@ -1,0 +1,652 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+:root {
+    --main-color: #0f1322;
+    --color-1: #85c7d3;
+    --color-2: #2d303a;
+    --color-3:#dabda9;
+    --color-4:#b8bfff;
+    --main-font: 'Excon', sans-serif;
+    --second-font: 'Ranade', sans-serif;
+    --container-border-radius: 20px;
+}
+
+body {
+    position: relative;
+    background-color: var(--main-color);
+    overflow-x: hidden;
+
+
+}
+
+
+
+/* loading animation  */
+.loader {
+    width: 100vw;
+    height: 100vh;
+    background-color: #303d6e;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 70;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: var(--main-font);
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 5px;
+
+    color: #ffffff;
+}
+
+/* navigation bar  */
+.nav {
+    width: 100%;
+    height: 75px;
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--main-color);
+}
+
+.logo {
+    font-family: var(--main-font);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    list-style-type: none;
+}
+
+.link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--second-font);
+    font-weight: 300;
+    font-size: .8rem;
+    letter-spacing: 1px;
+    padding: 5px 0px;
+
+}
+.link::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-bottom: 2px solid #ffffff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform  300ms ease;
+}
+
+.link:hover::before{
+    transform: scaleX(100%);
+    transform-origin: left;
+
+}
+.link a{
+    text-decoration: none;
+    color: #fff;
+}
+
+/* download button  */
+.download {
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+    border: 2px solid var(--color-1);
+    background-color: var(--main-color);
+    font-family: var(--main-font);
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+}
+.download:hover{
+    color: #000;
+}
+.download::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    background-color: #fff;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 300ms ease;
+}
+.download:hover::before{
+    transform: scaleY(100%);
+    transform-origin: bottom ;
+}
+
+/* main page */
+
+.main {
+    width: 100vw;
+    height: calc(110vh);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 60% 40%;
+    gap: 20px;
+
+    margin: 75px 0px;
+    padding: 0px 40px;
+
+}
+
+/* containers size adjusting with grid  */
+.container {
+    border-radius: var(--container-border-radius);
+    overflow: hidden;
+}
+
+.container-one {
+    grid-area: 1/1/2/5;
+    background-color: var(--color-1);
+}
+
+.container-two {
+    grid-area: 2/ 1/3/ 3;
+    background-color: var(--color-2);
+}
+
+.container-three {
+    grid-area: 2/ 3/3/ 4;
+    background-color: var(--color-3);
+}
+
+.container-four {
+    grid-area: 2/ 4/3/ 5;
+    background-color: var(--color-4);
+}
+
+/* first container  */
+.container-one {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-one .left {
+    height: 100%;
+    width: 50%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 50px 50px;
+
+}
+
+.description {
+    font-family: var(--second-font);
+    text-transform: uppercase;
+    color: #00000050;
+    font-size: 1rem;
+}
+
+.slogan {
+    font-family: var(--main-font);
+    width: 100%;
+    height: fit-content;
+    font-size: 5rem;
+    line-height: 110%;
+    text-transform: capitalize;
+    color: #000;
+}
+
+.slogan i {
+    font-size: 3rem;
+    padding: 0px 20px;
+    color: #000;
+}
+
+/* consultation booking mail input and button  */
+.container-one .booking {
+    width: 80%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.booking .mail {
+    width: 90%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+
+    font-family: var(--main-font);
+    font-size: 1rem;
+    color: #000000;
+    padding: 0px 10px;
+    letter-spacing: 1.2px;
+    border-bottom: 3px solid #000;
+
+}
+
+
+.mail::placeholder {
+    color: #000000;
+    font-family: var(--second-font);
+    text-transform: uppercase;
+}
+
+.mail:focus {
+    border-bottom: 3px solid #000;
+
+    outline: 2px transparent;
+}
+
+
+.booking .book{
+    height: 100%;
+    aspect-ratio: 1;
+    background: transparent;
+    border: 2px solid #000;
+    border-radius: 50%;
+
+    position: relative;
+    overflow: hidden;
+}
+.book i{
+    color: #000;
+    
+}
+
+.book::before{
+    content: '';
+    position: absolute;
+    z-index:-1;
+    inset: 0;
+    scale: 2;
+    background-color: #fff;
+    border-radius: inherit;
+    transform: scaleY(0%);
+    transform-origin: top;
+    transition: transform 300ms ease;
+    
+}
+.book:hover::before{
+    transform-origin: bottom;
+    transform: scaleY(100%);
+}
+
+/* hero section image in container one  */
+.container-one .right{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* hero section image  */
+.hero-image{
+    height: 100%;
+    width: 60%;
+    z-index: 2;
+    position: relative;
+    user-select: none;
+
+}
+.hero-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 100px  ;
+    filter: grayscale(1);
+}
+/* image back  */
+.hero-image::before{
+    content: '';
+    position: absolute;
+    top: 20px;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border-top:5px solid #000;
+    border-left:5px solid #000;
+    transform: rotate(45deg);
+
+}
+
+/* apply now ball rotating  */
+.right .apply-ball{
+    width: 150px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #000;
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    font-family: var(--second-font);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    z-index: 3;;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: applyRotate 10s linear infinite reverse;
+
+}
+.apply-ball::before{
+    content: '';
+    position: absolute;
+    height: 30%;
+    aspect-ratio: 1;
+    background: url('https://i.postimg.cc/5tWh9qyq/idea.png');
+    background-position: center;
+    background-size: contain;
+    animation: applyRotate 10s linear infinite forwards;
+
+}
+
+
+@keyframes applyRotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+    }
+}
+/* more for this is written in js */
+/* in this function apllyBallLetters(); in script.js */
+.apply-ball .letter{
+    position: absolute;
+    width: calc(140px / 2);
+    translate: -50%;
+    transform-origin: right center;
+    user-select: none;
+    writing-mode: vertical-lr;
+}
+
+
+
+/* container two  */
+
+
+.container-two{
+    position: relative;
+
+}
+.container-two::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+    margin: 0 auto;
+    background: url("https://i.postimg.cc/Qxc3x54q/inspiration.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: lighten;
+}
+
+
+
+/* buttons in container two  */
+
+.container-two .track{
+    width:fit-content;
+    height:fit-content;
+    padding: 10px 30px;
+    background-color: transparent;
+    border:1px solid #fff;
+    border-radius: 20px;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-family: var(--main-font);
+    letter-spacing: 1px;;
+    text-transform: capitalize;
+    font-size: 1rem;
+    overflow: hidden;
+}
+
+.track:hover{
+    color: #000;
+}
+.track::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    background-color: #fff;
+    transform-origin: top;
+    transform: scaleY(0%);
+    transition: transform 300ms ease;
+
+}
+.track:hover::before{
+    transform: scaleY(100%);
+    transform-origin: bottom;
+}
+
+.container-two .share{
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: var(--container-border-radius);
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: var(--color-2);
+    outline: 10px solid var(--main-color);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.share i{
+    font-size: 1.8rem;
+    rotate: -45deg;
+    transition:  300ms ease-in;
+}
+.share:hover i{
+    transform:  rotate(45deg);
+}
+
+/* container three  */
+.container-three{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    padding: 40px ;
+
+}
+/* container three top part play button lecturers avatars */
+.lectures{
+    width: 100%;
+    height: 50px;
+    /* background-color:#dadada; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* play button  */
+.lectures .play{
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.play i{
+    color: #000;
+    font-size: 1.2rem;
+}
+
+/* .lecturers avatars */
+.lectures .lecturers{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.lecturers .lecturer-one,
+.lecturers .lecturer-two{
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color:red;
+    border:  2px solid var(--color-3);
+    flex-shrink: 0;
+
+}
+.lecturer-one{
+    background: url('https://images.pexels.com/photos/5905483/pexels-photo-5905483.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-position: 0 -10px  ;
+    background-size: cover;
+    z-index: 3;
+}
+.lecturer-two{
+    background: url('https://images.pexels.com/photos/6325958/pexels-photo-6325958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-position: 0 0 ;
+    background-size: cover;
+    transform: translateX(-10px);
+    z-index: 1;
+}
+/* lecture statistics  */
+
+.lectures-stats{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.lectures-stats .title{
+    font-family: var(--second-font);
+    font-size: 1rem;
+    text-transform: capitalize;
+    color: #00000050;
+    cursor: pointer;
+}
+
+.lectures-stats .lectures-count{
+    font-family: var(--main-font);
+    font-size: 4rem;
+    letter-spacing: 3px;
+    font-weight: 800;
+    color: #000;
+    cursor: pointer;
+}
+
+
+/* container four  */
+
+.container-four{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    padding: 40px ;
+}
+
+/* metrics status  */
+.metrics{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.metrics .metrics-stats{
+    width: 50%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #000;
+    padding: 5px ;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:10px;
+    
+    font-family: var(--second-font);
+    font-size: 0.9rem;
+    text-wrap: nowrap;
+}
+
+.metrics-stats i{
+    color: #000;
+    background-color: var(--color-4);
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* metrics share arrow  */
+.metrics  .metrics-share{
+    font-size: 2rem;
+    transform: rotate(-45deg);
+    color: #000;
+    transition: 300ms ease;
+}
+
+
+.metrics-share:hover{
+    transform: rotate(0deg);
+}
+/* metrics description  */
+
+.container-four .metrics-description{
+    width: 100%;
+    height: fit-content;
+    font-size: 1.7rem;
+    font-family: var(--second-font);
+    font-weight: 400;;
+    color: #000;
+    cursor: pointer;
+
+}
+
+
+
+
+/* required css */
+* > button{
+    cursor: pointer;
+}
